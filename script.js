@@ -3,16 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (isWelcomePage) {
     const welcomeMusic = document.getElementById('welcome-music');
     welcomeMusic.loop = true;
-
-    // Try autoplay
     welcomeMusic.play().catch(() => {
-      // Fallback: wait for click
       document.addEventListener('click', () => {
         welcomeMusic.play();
       }, { once: true });
     });
-
-    // Handle "Enter" button
     const enterBtn = document.getElementById('enter-btn');
     if (enterBtn) {
       enterBtn.addEventListener('click', () => {
@@ -22,13 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
-
-
-
-  // ✅ All your other shared JS code continues below...
-
-
-  // Typing effect
   const greetingText = "WELCOME";
   const greetingElement = document.getElementById('greeting-text');
   if (greetingElement) {
@@ -44,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     typeGreeting();
   }
 
-  // Mascot wave toggling
+ 
   const mascot = document.getElementById('mascot');
   if (mascot) {
     const images = [
@@ -58,8 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
       mascot.src = images[currentIndex];
     }, 1000);
   }
-
-  // Timer logic
   const timerElement = document.getElementById('timer');
   const sessionLabel = document.getElementById('session-label');
   const sessionCountElement = document.getElementById('session-count');
@@ -183,8 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
     emotionMascot.src = 'assets/mascot-annoyed.png';
     emotionMascot.style.display = 'block';
     pauseTriggered = true;
-
-    // Show quit popup
     quitModal.classList.remove("hidden");
   }
 
@@ -237,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let i = 0;
   const typeSound = new Audio('assets/blip.mp3');
   typeSound.loop = true;
-  typeSound.volume = 0.3; // Optional: lower the volume
+  typeSound.volume = 0.3;
   typeSound.play();
 
   const typingInterval = setInterval(() => {
@@ -246,8 +230,8 @@ document.addEventListener('DOMContentLoaded', () => {
       i++;
     } else {
       clearInterval(typingInterval);
-      typeSound.pause();             // ⛔ Stop the sound
-      typeSound.currentTime = 0;     // ⏪ Reset to beginning
+      typeSound.pause();           
+      typeSound.currentTime = 0;     
     }
   }, 60);
     
@@ -271,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     const typeSound = new Audio('assets/blip.mp3');
     typeSound.loop = true;
-    typeSound.volume = 0.3;  // Optional: lower volume if needed
+    typeSound.volume = 0.3;
     typeSound.play();
   
     const interval = setInterval(() => {
