@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Pomodoro Timer</title>
+  <link href="https://fonts.googleapis.com/css2?family=PressStart2P&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .hidden { display: none; }
+    #quit-modal {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 9999;
+    }
+    #quit-modal .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    #quit-modal button {
+      margin: 0 10px;
+    }
+    #game-over-screen {
+      text-align: center;
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="timer-container">
+    <div class="session-info">
+      <div id="session-label">Work</div>
+      <div id="session-count">Session: 1 / 4</div>
+    </div>
+
+    <div id="timer">25:00</div>
+
+    <div class="select-wrapper">
+      <label for="focus-duration" class="pixel-label">Focus Duration:</label>
+      <select id="focus-duration" class="pixel-style">
+        <option value="15">15 mins</option>
+        <option value="20">20 mins</option>
+        <option value="25" selected>25 mins</option>
+        <option value="30">30 mins</option>
+        <option value="35">35 mins</option>
+        <option value="40">40 mins</option>
+        <option value="45">45 mins</option>
+        <option value="50">50 mins</option>
+        <option value="55">55 mins</option>
+        <option value="60">60 mins</option>
+        <option value="65">65 mins</option>
+      </select>
+    </div>
+
+    <div class="buttons">
+      <button id="start-btn">Start</button>
+      <button id="pause-btn">Pause</button>
+      <button id="reset-btn">Reset</button>
+    </div>
+
+    <!-- Mascots and motivation -->
+    <div class="mascot-wrapper">
+      <div id="motivation-box" class="motivation-box" style="display: none;"></div>
+      <img id="cat-mascot" class="mascot" src="assets/cat-resting.png" alt="Cat Mascot">
+      <img id="emotion-mascot" class="emotion-mascot" style="display: none;" alt="Emotion Mascot">
+    </div>
+  </div>
+
+  <!-- Quit Confirmation Modal -->
+  <div id="quit-modal" class="hidden">
+    <div class="modal-content">
+      <p class="text-lg font-semibold mb-4">Do you want to quit?</p>
+      <div class="flex justify-center gap-4">
+        
+        <button id="confirm-quit" class="bg-red-500 text-white px-4 py-2 rounded">Yes</button>
+        <button id="cancel-quit" class="bg-gray-300 px-4 py-2 rounded">No</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Over Screen -->
+  <div id="game-over-screen" class="hidden">
+    <h2 class="text-4xl font-bold text-red-600 mb-4">GAME OVER</h2>
+    <p id="game-over-message"></p>
+    <img src="assets/game-over.png" alt="Game Over" id="game-over-image" />
+    
+    </div>
+    
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
